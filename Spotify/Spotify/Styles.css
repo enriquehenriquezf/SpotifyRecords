@@ -1,0 +1,44 @@
+﻿body {   
+}
+.Login_background {
+    background:#0094ff;
+}
+.Login {
+    position:absolute;
+    left:50%;
+    top:50%;
+}
+.txtLogin{
+   /* background:#FFFFFF url(images/search.png) no-repeat 4px 4px;*/
+	border-bottom:2px solid;
+    border-top:0px;
+    border-left:0px;
+    border-right:0px;
+    border-color:#fff;
+	height: 22px;
+	width: 230px;
+    background:#0094ff;
+    color:#fff;
+}
+.btnLogin {
+	border: 2px solid #777;
+	border-radius: 10px;
+    border-color:#006bff;
+	outline: none;
+    background:#0082ff;
+    color:#fff;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #f1f1f1;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #f1f1f1;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #f1f1f1;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #f1f1f1;
+}
