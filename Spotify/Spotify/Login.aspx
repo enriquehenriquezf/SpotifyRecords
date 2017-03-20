@@ -19,7 +19,7 @@
                         <td>
                             <table cellpadding="0">
                                 <tr>
-                                    <td align="center" colspan="2">Iniciar sesión</td>
+                                    <td align="center" colspan="2" style="color:white;">Iniciar sesión</td>
                                 </tr>
                                 <tr>
                                     <td align="right"></td>
@@ -37,7 +37,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="2">
-                                        <asp:CheckBox ID="RememberMe" runat="server" Text="Recordármelo la próxima vez." />
+                                        <asp:CheckBox ID="RememberMe" runat="server" style="color:white;" Text="Recordármelo la próxima vez." />
                                     </td>
                                 </tr>
                                 <tr>

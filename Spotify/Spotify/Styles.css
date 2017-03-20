@@ -28,6 +28,16 @@
     background:#0082ff;
     color:#fff;
 }
+
+#text_Album {
+  position: absolute;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  left: 150px;
+  top: 350px;
+}
+
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color:    #f1f1f1;
 }
