@@ -13,6 +13,15 @@
     <CENTER>
     <div>
     
+        <asp:DropDownList ID="ListBusqueda" runat="server" OnSelectedIndexChanged="ListBusqueda_SelectedIndexChanged">
+            <asp:ListItem>Cancion</asp:ListItem>
+            <asp:ListItem>Artista</asp:ListItem>
+            <asp:ListItem>Álbum y Artista</asp:ListItem>
+        </asp:DropDownList>
+        <asp:TextBox ID="txt_Busqueda" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txt_Busqueda2" runat="server" Visible="False"></asp:TextBox>
+        <asp:Button ID="btn_Buscar" runat="server" OnClick="Button1_Click" Text="Buscar" />
+    
     </div>
         <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" GroupItemCount="1">
             <AlternatingItemTemplate>
