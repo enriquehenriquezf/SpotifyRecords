@@ -13,6 +13,7 @@ namespace Spotify
     {
         ConnectionStringSettings connStrSett;
         string connStr;
+        public Boolean admin;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,7 +29,6 @@ namespace Spotify
                 SqlConnection sqlConn = new SqlConnection(connStr);
                 SqlCommand sqlCommand;
                 //SqlDataAdapter sqlDA;
-                Boolean admin;
                 sqlConn.Open();
                 sqlCommand = sqlConn.CreateCommand();
                 sqlCommand.CommandText = "SELECT Login.* FROM Login WHERE Login.UserName='" + Login1.UserName + "' AND Login.Password='" + Login1.Password + "'";
@@ -39,7 +39,7 @@ namespace Spotify
                 {
                     if (reader[0].Equals(Login1.UserName) && reader[1].Equals(Login1.Password))
                     {
-                        if (reader[2].Equals("10"))
+                        if (reader[2].Equals("10") || reader[2].Equals(10))
                         {
                             admin = true;
                         }
@@ -56,6 +56,7 @@ namespace Spotify
                     }
                 }
                 sqlConn.Close();
+                Session["admin"] = admin;
                 //dataGridView2.DataSource = dt;
             }
             catch (Exception ex)

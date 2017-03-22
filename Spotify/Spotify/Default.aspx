@@ -13,16 +13,17 @@
     <CENTER>
     <div>
     
-        <asp:DropDownList ID="ListBusqueda" runat="server" OnSelectedIndexChanged="ListBusqueda_SelectedIndexChanged">
+        <asp:DropDownList ID="ListBusqueda" runat="server" OnSelectedIndexChanged="ListBusqueda_SelectedIndexChanged" OnTextChanged="ListBusqueda_TextChanged">
             <asp:ListItem>Cancion</asp:ListItem>
             <asp:ListItem>Artista</asp:ListItem>
             <asp:ListItem>Álbum y Artista</asp:ListItem>
         </asp:DropDownList>
         <asp:TextBox ID="txt_Busqueda" runat="server"></asp:TextBox>
-        <asp:TextBox ID="txt_Busqueda2" runat="server" Visible="False"></asp:TextBox>
+        <asp:TextBox ID="txt_Busqueda2" runat="server" Enabled="False"></asp:TextBox>
         <asp:Button ID="btn_Buscar" runat="server" OnClick="Button1_Click" Text="Buscar" />
     
     </div>
+        <asp:Button ID="btnAdministrar" runat="server" Text="Panel De Administración" Visible="False" OnClick="btnAdministrar_Click" />
         <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" GroupItemCount="1">
             <AlternatingItemTemplate>
                 <td runat="server" style="background-color:#008A8C;">
@@ -74,19 +75,19 @@
             </GroupTemplate>
             <InsertItemTemplate>
                 <td runat="server" style="">Album:
-                    <asp:TextBox ID="AlbumTextBox" runat="server" Text='<%# Bind("Album") %>' />
+                    <asp:TextBox ID="AlbumTextBox0" runat="server" Text='<%# Bind("Album") %>' />
                     <br />Año:
-                    <asp:TextBox ID="AñoTextBox" runat="server" Text='<%# Bind("Año") %>' />
+                    <asp:TextBox ID="AñoTextBox0" runat="server" Text='<%# Bind("Año") %>' />
                     <br />Artista:
-                    <asp:TextBox ID="ArtistaTextBox" runat="server" Text='<%# Bind("Artista") %>' />
+                    <asp:TextBox ID="ArtistaTextBox0" runat="server" Text='<%# Bind("Artista") %>' />
                     <br />ImageUrl:
-                    <asp:TextBox ID="ImageUrlTextBox" runat="server" Text='<%# Bind("ImageUrl") %>' />
+                    <asp:TextBox ID="ImageUrlTextBox0" runat="server" Text='<%# Bind("ImageUrl") %>' />
                     <br />RankTotal:
-                    <asp:TextBox ID="RankTotalTextBox" runat="server" Text='<%# Bind("RankTotal") %>' />
+                    <asp:TextBox ID="RankTotalTextBox0" runat="server" Text='<%# Bind("RankTotal") %>' />
                     <br />
                     <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
                     <br />
-                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Borrar" />
+                    <asp:Button ID="CancelButton0" runat="server" CommandName="Cancel" Text="Borrar" />
                     <br /></td>
             </InsertItemTemplate>
             <ItemTemplate>
@@ -94,15 +95,15 @@
                     <DIV Style="color:white; background-color:rgba(0,0,0,0.40);">
                     <CENTER><img src="<%# Eval("ImageUrl") %>" style="width:300px; height:300px;"/></CENTER>
                     <br />Album:
-                    <asp:Label ID="AlbumLabel" runat="server" Text='<%# Eval("Album") %>' />                                    
+                    <asp:Label ID="AlbumLabel0" runat="server" Text='<%# Eval("Album") %>' />                                    
                     <br />Año:
-                    <asp:Label ID="AñoLabel" runat="server" Text='<%# Eval("Año") %>' />
+                    <asp:Label ID="AñoLabel0" runat="server" Text='<%# Eval("Año") %>' />
                     <br />Artista:
-                    <asp:Label ID="ArtistaLabel" runat="server" Text='<%# Eval("Artista") %>' />
+                    <asp:Label ID="ArtistaLabel0" runat="server" Text='<%# Eval("Artista") %>' />
                    <!-- <br />ImageUrl:
                     <asp:Label ID="ImageUrlLabel" runat="server" Text='<%//# Eval("ImageUrl") %>' />     -->
                     <br />Rank:
-                    <asp:Label ID="RankTotalLabel" runat="server" Text='<%# Eval("RankTotal") %>' />
+                    <asp:Label ID="RankTotalLabel0" runat="server" Text='<%# Eval("RankTotal") %>' />
                     <br /></DIV></td>
             </ItemTemplate>
             <LayoutTemplate>
@@ -122,17 +123,19 @@
             </LayoutTemplate>
             <SelectedItemTemplate>
                 <td runat="server" style="background-color:#008A8C;font-weight: bold;color: #FFFFFF;">Album:
-                    <asp:Label ID="AlbumLabel" runat="server" Text='<%# Eval("Album") %>' />
+                    <asp:Label ID="AlbumLabel1" runat="server" Text='<%# Eval("Album") %>' />
                     <br />Año:
-                    <asp:Label ID="AñoLabel" runat="server" Text='<%# Eval("Año") %>' />
+                    <asp:Label ID="AñoLabel1" runat="server" Text='<%# Eval("Año") %>' />
                     <br />Artista:
-                    <asp:Label ID="ArtistaLabel" runat="server" Text='<%# Eval("Artista") %>' />
+                    <asp:Label ID="ArtistaLabel1" runat="server" Text='<%# Eval("Artista") %>' />
                     <br />ImageUrl:
                     <asp:Label ID="ImageUrlLabel" runat="server" Text='<%# Eval("ImageUrl") %>' />
                     <br />RankTotal:
-                    <asp:Label ID="RankTotalLabel" runat="server" Text='<%# Eval("RankTotal") %>' />
+                    <asp:Label ID="RankTotalLabel1" runat="server" Text='<%# Eval("RankTotal") %>' />
                     <br /></td>
             </SelectedItemTemplate>
+        </asp:ListView>
+        <asp:ListView ID="ListView2" runat="server" Visible="False">
         </asp:ListView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:spotifydbConnectionString %>" SelectCommand="SELECT TOP (5) Album, Año, Artista, ImageUrl, RankTotal FROM Albums ORDER BY RankTotal DESC"></asp:SqlDataSource>
     </CENTER>
