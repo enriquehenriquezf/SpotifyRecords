@@ -51,7 +51,7 @@ namespace Spotify
                     }
                     else 
                     {
-                        Response.Write("EL nombre de usuario y/o contraseña son incorrectos");
+                        Response.Write("<script>alert('El nombre de usuario y/o contraseña son incorrectos');</script>");
                         e.Authenticated = false;
                     }
                 }

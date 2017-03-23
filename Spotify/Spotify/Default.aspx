@@ -13,7 +13,7 @@
     <CENTER>
     <div>
     
-        <asp:DropDownList ID="ListBusqueda" runat="server" OnSelectedIndexChanged="ListBusqueda_SelectedIndexChanged" OnTextChanged="ListBusqueda_TextChanged">
+        <asp:DropDownList ID="ListBusqueda" runat="server" OnSelectedIndexChanged="ListBusqueda_SelectedIndexChanged">
             <asp:ListItem>Cancion</asp:ListItem>
             <asp:ListItem>Artista</asp:ListItem>
             <asp:ListItem>Álbum y Artista</asp:ListItem>
@@ -135,7 +135,47 @@
                     <br /></td>
             </SelectedItemTemplate>
         </asp:ListView>
-        <asp:ListView ID="ListView2" runat="server" Visible="False">
+        <asp:ListView ID="ListView2" runat="server" GroupItemCount="1" Visible="False" GroupPlaceholderID="groupPlaceholder2" ItemPlaceholderID="itemPlaceholder2">
+            <ItemTemplate>
+                <td id="Td1" runat="server" style="background-color:#008A8C;color: #000000;">
+                    <DIV Style="color:white; background-color:rgba(0,0,0,0.40);">
+                    <CENTER><img src="<%# Eval("ImageUrl") %>" style="width:300px; height:300px;"/></CENTER>
+                    <br />Artista:
+                    <asp:Label ID="ArtistaLabel1" runat="server" Text='<%# Eval("Artista") %>' />
+                    <br />Album:
+                    <asp:Label ID="AlbumLabel1" runat="server" Text='<%# Eval("Album") %>' />                                    
+                    <br />Cancion:
+                    <asp:Label ID="CancionLabel1" runat="server" Text='<%# Eval("Cancion") %>' />
+                    <br />Genero:
+                    <asp:Label ID="GeneroLabel1" runat="server" Text='<%# Eval("Genero") %>' />
+                    <br />Compositor:
+                    <asp:Label ID="CompositorLabel1" runat="server" Text='<%# Eval("Compositor") %>' />
+                    <br />Colaboradores:
+                    <asp:Label ID="ColaboradoresLabel1" runat="server" Text='<%# Eval("Colaboradores") %>' />
+                    <br />Link:
+                    <asp:Label ID="LinkLabel1" runat="server" Text='<%# Eval("Link") %>' />
+                    <br /></DIV></td>
+            </ItemTemplate>
+            <GroupTemplate>
+                <tr id="itemPlaceholderContainer2" runat="server">
+                    <td id="itemPlaceholder2" runat="server"></td>
+                </tr>
+            </GroupTemplate>
+            <LayoutTemplate>
+                <table id="Table1" runat="server">
+                    <tr id="Tr1" runat="server">
+                        <td id="Td2" runat="server">
+                            <table id="groupPlaceholderContainer2" runat="server" border="1" style="background-color: #FFFFFF; border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
+                                <tr id="groupPlaceholder2" runat="server">
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr id="Tr2" runat="server">
+                        <td id="Td3" runat="server" style="text-align: center;background-color: #CCCCCC;font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;"></td>
+                    </tr>
+                </table>
+            </LayoutTemplate>
         </asp:ListView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:spotifydbConnectionString %>" SelectCommand="SELECT TOP (5) Album, Año, Artista, ImageUrl, RankTotal FROM Albums ORDER BY RankTotal DESC"></asp:SqlDataSource>
     </CENTER>

@@ -12,13 +12,14 @@ namespace Spotify
 {
     public partial class Default : System.Web.UI.Page
     {
-        int TipoBusqueda = 0;
+        int TipoBusqueda;
         ConnectionStringSettings connStrSett;
         string connStr;
         public Boolean admin;
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            TipoBusqueda = ListBusqueda.SelectedIndex;
             admin = (Boolean)(Session["admin"]);
             if (admin == true) 
             {
@@ -66,13 +67,6 @@ namespace Spotify
         }
 
         protected void ListBusqueda_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            TipoBusqueda = ListBusqueda.SelectedIndex;
-            if (TipoBusqueda == 2) { txt_Busqueda2.Enabled = true; }
-            else { txt_Busqueda2.Enabled = false; }
-        }
-
-        protected void ListBusqueda_TextChanged(object sender, EventArgs e)
         {
             TipoBusqueda = ListBusqueda.SelectedIndex;
             if (TipoBusqueda == 2) { txt_Busqueda2.Enabled = true; }
