@@ -27,7 +27,9 @@ namespace Spotify
                 SqlCommand sqlCommand;
                 sqlConn.Open();
                 sqlCommand = sqlConn.CreateCommand();
-                sqlCommand.CommandText = "IF NOT EXISTS (SELECT * FROM Artistas WHERE Artistas.Artista='" + txt_artista.Text + "') INSERT INTO Artistas VALUES ('" + txt_artista.Text + "','" + txt_ArtistaUrl.Text + "')";
+                string url = "http://www.freeiconspng.com/uploads/no-image-icon-4.png";
+                if (!txt_ArtistaUrl.Text.Equals("")) { url = txt_ArtistaUrl.Text; }
+                sqlCommand.CommandText = "IF NOT EXISTS (SELECT * FROM Artistas WHERE Artistas.Artista='" + txt_artista.Text + "') INSERT INTO Artistas VALUES ('" + txt_artista.Text + "','" + url + "')";
                 //SqlDataReader reader = sqlCommand.ExecuteReader();
                 int Successfully = sqlCommand.ExecuteNonQuery();             
                 sqlConn.Close();
@@ -54,7 +56,9 @@ namespace Spotify
                 SqlCommand sqlCommand;
                 sqlConn.Open();
                 sqlCommand = sqlConn.CreateCommand();
-                sqlCommand.CommandText = "if exists (select * from Artistas where Artistas.Artista = '" + txt_Album_Artista.Text + "') insert into Albums values('" + txt_Album_Name.Text + "','" + txt_Album_Year.Text + "','" + txt_Album_Artista.Text + "','" + txt_Album_URL.Text + "','0')";
+                string url = "http://www.freeiconspng.com/uploads/no-image-icon-4.png";
+                if (!txt_Album_URL.Text.Equals("")) { url = txt_Album_URL.Text; }
+                sqlCommand.CommandText = "if exists (select * from Artistas where Artistas.Artista = '" + txt_Album_Artista.Text + "') insert into Albums values('" + txt_Album_Name.Text + "','" + txt_Album_Year.Text + "','" + txt_Album_Artista.Text + "','" + url + "','0')";
                 int Successfully = sqlCommand.ExecuteNonQuery();
                 sqlConn.Close();
                 if (Successfully != 0)
@@ -80,7 +84,9 @@ namespace Spotify
                 SqlCommand sqlCommand;
                 sqlConn.Open();
                 sqlCommand = sqlConn.CreateCommand();
-                sqlCommand.CommandText = "if exists (select * from Artistas,Albums where Artistas.Artista = '" + txt_Cancion_Artista.Text + "' and Albums.Album = '" + txt_Cancion_Album.Text + "' and Albums.Artista = Artistas.Artista) insert into Canciones values('" + txt_Cancion_Artista.Text + "','" + txt_Cancion_Album.Text + "','" + txt_Cancion_Name.Text + "','" + txt_Cancion_Genero.Text + "','" + txt_Cancion_Compositor.Text + "','" + txt_Cancion_Colaboradores.Text + "','" + txt_Cancion_Link.Text + "','" + txt_Cancion_ImageURL.Text + "')";
+                string url = "http://www.freeiconspng.com/uploads/no-image-icon-4.png";
+                if (!txt_Cancion_ImageURL.Text.Equals("")) { url = txt_Cancion_ImageURL.Text; }
+                sqlCommand.CommandText = "if exists (select * from Artistas,Albums where Artistas.Artista = '" + txt_Cancion_Artista.Text + "' and Albums.Album = '" + txt_Cancion_Album.Text + "' and Albums.Artista = Artistas.Artista) insert into Canciones values('" + txt_Cancion_Artista.Text + "','" + txt_Cancion_Album.Text + "','" + txt_Cancion_Name.Text + "','" + txt_Cancion_Genero.Text + "','" + txt_Cancion_Compositor.Text + "','" + txt_Cancion_Colaboradores.Text + "','" + txt_Cancion_Link.Text + "','" + url + "')";
                 int Successfully = sqlCommand.ExecuteNonQuery();
                 sqlConn.Close();
                 if (Successfully != 0)

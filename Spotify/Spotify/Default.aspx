@@ -18,8 +18,8 @@
             <asp:ListItem>Artista</asp:ListItem>
             <asp:ListItem>Álbum y Artista</asp:ListItem>
         </asp:DropDownList>
-        <asp:TextBox ID="txt_Busqueda" runat="server"></asp:TextBox>
-        <asp:TextBox ID="txt_Busqueda2" runat="server" Enabled="False"></asp:TextBox>
+        <asp:TextBox ID="txt_Busqueda" runat="server" placeholder='Buscar'></asp:TextBox>
+        <asp:TextBox ID="txt_Busqueda2" runat="server" placeholder='Busqueda Avanzada'></asp:TextBox>
         <asp:Button ID="btn_Buscar" runat="server" OnClick="Button1_Click" Text="Buscar" />
     
     </div>
@@ -39,7 +39,25 @@
                     <asp:Label ID="ImageUrlLabel" runat="server" Text='<%//# Eval("ImageUrl") %>' /> -->
                     <br />Rank:
                     <asp:Label ID="RankTotalLabel" runat="server" Text='<%# Eval("RankTotal") %>' />
-                    <br /></DIV></td>
+                    <br />
+                    <span class="rating">
+                        <input type="radio" class="rating-input"
+                            id="ratingInput15" name="rating-input-1">
+                        <label for="ratingInput15" class="rating-star"></label>
+                        <input type="radio" class="rating-input"
+                            id="ratingInput14" name="rating-input-1">
+                        <label for="ratingInput14" class="rating-star"></label>
+                        <input type="radio" class="rating-input"
+                            id="ratingInput13" name="rating-input-1">
+                        <label for="ratingInput13" class="rating-star"></label>
+                        <input type="radio"  class="rating-input"
+                            id="ratingInput12" name="rating-input-1">
+                        <label for="ratingInput12" class="rating-star"></label>
+                        <input type="radio" class="rating-input"
+                            id="ratingInput11" name="rating-input-1">
+                        <label for="ratingInput11" class="rating-star"></label>
+                    </span>
+                    </DIV></td>
             </AlternatingItemTemplate>
             <EditItemTemplate>
                 <td runat="server" style="background-color:#008A8C;color: #FFFFFF;">Album:
@@ -135,15 +153,16 @@
                     <br /></td>
             </SelectedItemTemplate>
         </asp:ListView>
+        <div class="ListCanciones">
         <asp:ListView ID="ListView2" runat="server" GroupItemCount="1" Visible="False" GroupPlaceholderID="groupPlaceholder2" ItemPlaceholderID="itemPlaceholder2">
             <ItemTemplate>
                 <td id="Td1" runat="server" style="background-color:#008A8C;color: #000000;">
                     <DIV Style="color:white; background-color:rgba(0,0,0,0.40);">
                     <CENTER><img src="<%# Eval("ImageUrl") %>" style="width:300px; height:300px;"/></CENTER>
                     <br />Artista:
-                    <asp:Label ID="ArtistaLabel1" runat="server" Text='<%# Eval("Artista") %>' />
+                    <asp:Label ID="ArtistaLabel2" runat="server" Text='<%# Eval("Artista") %>' />
                     <br />Album:
-                    <asp:Label ID="AlbumLabel1" runat="server" Text='<%# Eval("Album") %>' />                                    
+                    <asp:Label ID="AlbumLabel2" runat="server" Text='<%# Eval("Album") %>' />                                    
                     <br />Cancion:
                     <asp:Label ID="CancionLabel1" runat="server" Text='<%# Eval("Cancion") %>' />
                     <br />Genero:
@@ -177,6 +196,45 @@
                 </table>
             </LayoutTemplate>
         </asp:ListView>
+        </div>
+        <div class="ListAlbums">
+        <asp:ListView ID="ListView3" runat="server" GroupItemCount="1" Visible="False" GroupPlaceholderID="groupPlaceholder3" ItemPlaceholderID="itemPlaceholder3">
+            <ItemTemplate>
+                <td id="Td1" runat="server" style="background-color:#DCDCDC;color: #000000;">
+                    <DIV Style="color:white; background-color:rgba(0,0,0,0.40);">
+                    <CENTER><img src="<%# Eval("ImageUrl") %>" style="width:300px; height:300px;"/></CENTER>                        
+                    <br />Album:
+                    <asp:Label ID="AlbumLabel2" runat="server" Text='<%# Eval("Album") %>' />  
+                    <br />Artista:
+                    <asp:Label ID="ArtistaLabel2" runat="server" Text='<%# Eval("Artista") %>' />                                  
+                    <br />Año:
+                    <asp:Label ID="AñoLabel2" runat="server" Text='<%# Eval("Año") %>' />
+                    <br />Rank:
+                    <asp:Label ID="RankLabel2" runat="server" Text='<%# Eval("RankTotal") %>' />
+                    <br /></DIV></td>
+            </ItemTemplate>
+            <GroupTemplate>
+                <tr id="itemPlaceholderContainer3" runat="server">
+                    <td id="itemPlaceholder3" runat="server"></td>
+                </tr>
+            </GroupTemplate>
+            <LayoutTemplate>
+                <table id="Table1" runat="server">
+                    <tr id="Tr1" runat="server">
+                        <td id="Td2" runat="server">
+                            <table id="groupPlaceholderContainer3" runat="server" border="1" style="background-color: #FFFFFF; border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
+                                <tr id="groupPlaceholder3" runat="server">
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr id="Tr2" runat="server">
+                        <td id="Td3" runat="server" style="text-align: center;background-color: #CCCCCC;font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;"></td>
+                    </tr>
+                </table>
+            </LayoutTemplate>
+        </asp:ListView>
+        </div>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:spotifydbConnectionString %>" SelectCommand="SELECT TOP (5) Album, Año, Artista, ImageUrl, RankTotal FROM Albums ORDER BY RankTotal DESC"></asp:SqlDataSource>
     </CENTER>
     </form>
