@@ -43,6 +43,24 @@ div.ListCanciones, div.ListAlbums
 }
 
 
+.starRating {
+    width:32px;
+    height:32px;
+    cursor:pointer;
+    background-repeat:no-repeat;
+    display:inline-block;
+}
+.FilledStars {
+    background-image:url("Images/FilledStar.png")
+}
+.EmptyStars {
+    background-image:url("Images/EmptyStar.png")
+}
+.HalfStars {
+    background-image:url("Images/HalfStar.png")
+}
+
+
 .rating {
     overflow: hidden;
     display: inline-block;

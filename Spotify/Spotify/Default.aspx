@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Spotify.Default" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -10,6 +12,8 @@
 </head>
 <body style="background-color:rgba(0,0,0,1)">
     <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server"></asp:UpdatePanel>                  
     <CENTER>
     <div>
     
@@ -40,23 +44,17 @@
                     <br />Rank:
                     <asp:Label ID="RankTotalLabel" runat="server" Text='<%# Eval("RankTotal") %>' />
                     <br />
-                    <span class="rating">
-                        <input type="radio" class="rating-input"
-                            id="ratingInput15" name="rating-input-1">
-                        <label for="ratingInput15" class="rating-star"></label>
-                        <input type="radio" class="rating-input"
-                            id="ratingInput14" name="rating-input-1">
-                        <label for="ratingInput14" class="rating-star"></label>
-                        <input type="radio" class="rating-input"
-                            id="ratingInput13" name="rating-input-1">
-                        <label for="ratingInput13" class="rating-star"></label>
-                        <input type="radio"  class="rating-input"
-                            id="ratingInput12" name="rating-input-1">
-                        <label for="ratingInput12" class="rating-star"></label>
-                        <input type="radio" class="rating-input"
-                            id="ratingInput11" name="rating-input-1">
-                        <label for="ratingInput11" class="rating-star"></label>
-                    </span>
+                    <contenttemplate>
+                    
+                        <cc1:Rating ID="Rating1" runat="server"
+                            StarCssClass="starRating"
+                            FilledStarCssClass="FilledStars"
+                            EmptyStarCssClass="EmptyStars"
+                            WaitingStarCssClass="HalfStars"
+                            CurrentRating="0"
+                            MaxRating="5"
+                            ></cc1:Rating>
+                    </contenttemplate>
                     </DIV></td>
             </AlternatingItemTemplate>
             <EditItemTemplate>
@@ -122,7 +120,19 @@
                     <asp:Label ID="ImageUrlLabel" runat="server" Text='<%//# Eval("ImageUrl") %>' />     -->
                     <br />Rank:
                     <asp:Label ID="RankTotalLabel0" runat="server" Text='<%# Eval("RankTotal") %>' />
-                    <br /></DIV></td>
+                    <br />
+                    <contenttemplate>
+                    
+                    <cc1:Rating ID="Rating1" runat="server"
+                        StarCssClass="starRating"
+                        FilledStarCssClass="FilledStars"
+                        EmptyStarCssClass="EmptyStars"
+                        WaitingStarCssClass="HalfStars"
+                        CurrentRating="0"
+                        MaxRating="5"
+                        ></cc1:Rating>
+                    </contenttemplate>
+                    </DIV></td>
             </ItemTemplate>
             <LayoutTemplate>
                 <table runat="server">
