@@ -138,7 +138,7 @@ namespace Spotify
                 SqlCommand sqlCommand;
                 sqlConn.Open();
                 sqlCommand = sqlConn.CreateCommand();
-                sqlCommand.CommandText = "if exists (select * from Albums where Albums.Album = '" + txt_Eliminar_Album.Text + "' ) delete  from Albums where Albums.Album = '" + txt_Eliminar_Album.Text + "' delete from Canciones where Canciones.Album = '" + txt_Eliminar_Album.Text + "'";
+                sqlCommand.CommandText = "if exists (select * from Albums where Albums.Album LIKE '" + txt_Eliminar_Album.Text + "%' ) delete  from Albums where Albums.Album LIKE '" + txt_Eliminar_Album.Text + "%' delete from Canciones where Canciones.Album LIKE '" + txt_Eliminar_Album.Text + "%'";
                 int Successfully = sqlCommand.ExecuteNonQuery();
                 sqlConn.Close();
                 if (Successfully != 0)

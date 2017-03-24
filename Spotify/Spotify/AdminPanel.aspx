@@ -39,7 +39,7 @@
             <asp:TextBox ID="txt_Cancion_Compositor" runat="server" placeholder="Compositor*"></asp:TextBox>
             <asp:TextBox ID="txt_Cancion_Genero" runat="server" placeholder="Genero*"></asp:TextBox>
             <asp:TextBox ID="txt_Cancion_Colaboradores" runat="server" placeholder="Colaboradores"></asp:TextBox>
-            <asp:TextBox ID="txt_Cancion_Link" runat="server" placeholder="Link de la Cancion"></asp:TextBox>
+            <asp:TextBox ID="txt_Cancion_Link" runat="server" placeholder="URL del audio subido"></asp:TextBox>
             <asp:TextBox ID="txt_Cancion_ImageURL" runat="server" placeholder="Imagen URL"></asp:TextBox>
             <asp:Button ID="btn_InsertarCancion" runat="server" Text="Insertar" OnClick="btn_InsertarCancion_Click" />
             <hr />

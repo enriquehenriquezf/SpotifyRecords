@@ -25,12 +25,13 @@
         <asp:TextBox ID="txt_Busqueda" runat="server" placeholder='Buscar'></asp:TextBox>
         <asp:TextBox ID="txt_Busqueda2" runat="server" placeholder='Busqueda Avanzada'></asp:TextBox>
         <asp:Button ID="btn_Buscar" runat="server" OnClick="Button1_Click" Text="Buscar" />
-    
-    </div>
+        <br />
         <asp:Button ID="btnAdministrar" runat="server" Text="Panel De Administración" Visible="False" OnClick="btnAdministrar_Click" />
+
+    </div>
         <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" GroupItemCount="1">
             <AlternatingItemTemplate>
-                <td runat="server" style="background-color:#008A8C;">
+                <td runat="server" style="background-color:#008A8C; max-width: 300px;">
                     <DIV Style="color:white; background-color:rgba(0,0,0,0.40);">                         
                     <CENTER><img src="<%# Eval("ImageUrl") %>" style="width:300px; height:300px;" /></CENTER>
                     <br />Album:
@@ -45,13 +46,12 @@
                     <asp:Label ID="RankTotalLabel" runat="server" Text='<%# Eval("RankTotal") %>' />
                     <br />
                     <contenttemplate>
-                    
                         <cc1:Rating ID="Rating1" runat="server"
                             StarCssClass="starRating"
                             FilledStarCssClass="FilledStars"
                             EmptyStarCssClass="EmptyStars"
                             WaitingStarCssClass="HalfStars"
-                            CurrentRating="0"
+                            CurrentRating='<%#(int)Math.Ceiling((Double)Eval("RankTotal")) %>'
                             MaxRating="5"
                             ></cc1:Rating>
                     </contenttemplate>
@@ -108,7 +108,7 @@
             </InsertItemTemplate>
             <ItemTemplate>
                 <td runat="server" style="background-color:#DCDCDC;color: #000000;">
-                    <DIV Style="color:white; background-color:rgba(0,0,0,0.40);">
+                    <DIV Style="color:white; background-color:rgba(0,0,0,0.40); max-width: 300px;">
                     <CENTER><img src="<%# Eval("ImageUrl") %>" style="width:300px; height:300px;"/></CENTER>
                     <br />Album:
                     <asp:Label ID="AlbumLabel0" runat="server" Text='<%# Eval("Album") %>' />                                    
@@ -128,7 +128,7 @@
                         FilledStarCssClass="FilledStars"
                         EmptyStarCssClass="EmptyStars"
                         WaitingStarCssClass="HalfStars"
-                        CurrentRating="0"
+                        CurrentRating='<%#(int)Math.Ceiling((Double)Eval("RankTotal")) %>'
                         MaxRating="5"
                         ></cc1:Rating>
                     </contenttemplate>
@@ -166,7 +166,7 @@
         <div class="ListCanciones">
         <asp:ListView ID="ListView2" runat="server" GroupItemCount="1" Visible="False" GroupPlaceholderID="groupPlaceholder2" ItemPlaceholderID="itemPlaceholder2">
             <ItemTemplate>
-                <td id="Td1" runat="server" style="background-color:#008A8C;color: #000000;">
+                <td id="Td1" runat="server" style="background-color:#008A8C;color: #000000; max-width: 300px;">
                     <DIV Style="color:white; background-color:rgba(0,0,0,0.40);">
                     <CENTER><img src="<%# Eval("ImageUrl") %>" style="width:300px; height:300px;"/></CENTER>
                     <br />Artista:
@@ -181,8 +181,10 @@
                     <asp:Label ID="CompositorLabel1" runat="server" Text='<%# Eval("Compositor") %>' />
                     <br />Colaboradores:
                     <asp:Label ID="ColaboradoresLabel1" runat="server" Text='<%# Eval("Colaboradores") %>' />
-                    <br />Link:
-                    <asp:Label ID="LinkLabel1" runat="server" Text='<%# Eval("Link") %>' />
+                    <br />
+                    <audio src='<%# Eval("Link") %>' controls>
+                    Your browser does not support the audio element.
+                    </audio>
                     <br /></DIV></td>
             </ItemTemplate>
             <GroupTemplate>
@@ -210,7 +212,7 @@
         <div class="ListAlbums">
         <asp:ListView ID="ListView3" runat="server" GroupItemCount="1" Visible="False" GroupPlaceholderID="groupPlaceholder3" ItemPlaceholderID="itemPlaceholder3">
             <ItemTemplate>
-                <td id="Td1" runat="server" style="background-color:#DCDCDC;color: #000000;">
+                <td id="Td1" runat="server" style="background-color:#DCDCDC;color: #000000; max-width: 300px;">
                     <DIV Style="color:white; background-color:rgba(0,0,0,0.40);">
                     <CENTER><img src="<%# Eval("ImageUrl") %>" style="width:300px; height:300px;"/></CENTER>                        
                     <br />Album:
@@ -221,7 +223,19 @@
                     <asp:Label ID="AñoLabel2" runat="server" Text='<%# Eval("Año") %>' />
                     <br />Rank:
                     <asp:Label ID="RankLabel2" runat="server" Text='<%# Eval("RankTotal") %>' />
-                    <br /></DIV></td>
+                    <br />
+                    <contenttemplate>
+                    
+                    <cc1:Rating ID="Rating3" runat="server"
+                        StarCssClass="starRating"
+                        FilledStarCssClass="FilledStars"
+                        EmptyStarCssClass="EmptyStars"
+                        WaitingStarCssClass="HalfStars"
+                        CurrentRating='<%#(int)Math.Ceiling((Double)Eval("RankTotal")) %>'
+                        MaxRating="5"
+                        ></cc1:Rating>
+                    </contenttemplate>
+                    </DIV></td>
             </ItemTemplate>
             <GroupTemplate>
                 <tr id="itemPlaceholderContainer3" runat="server">
