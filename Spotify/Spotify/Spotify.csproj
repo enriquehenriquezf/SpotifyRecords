@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminPanel.aspx" />
+    <Content Include="Album.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Images\EmptyStar.png" />
     <Content Include="Images\FilledStar.png" />
@@ -77,6 +78,13 @@
     </Compile>
     <Compile Include="AdminPanel.aspx.designer.cs">
       <DependentUpon>AdminPanel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Album.aspx.cs">
+      <DependentUpon>Album.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Album.aspx.designer.cs">
+      <DependentUpon>Album.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

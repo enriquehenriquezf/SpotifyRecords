@@ -10,7 +10,7 @@
 namespace Spotify {
     
     
-    public partial class Default {
+    public partial class Album {
         
         /// <summary>
         /// Control form1.
@@ -40,93 +40,75 @@ namespace Spotify {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// Control ListBusqueda.
+        /// Control ImageAlbum.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ListBusqueda;
+        protected global::System.Web.UI.WebControls.Image ImageAlbum;
         
         /// <summary>
-        /// Control txt_Busqueda.
+        /// Control lbl_Album.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Busqueda;
+        protected global::System.Web.UI.WebControls.Label lbl_Album;
         
         /// <summary>
-        /// Control txt_Busqueda2.
+        /// Control lbl_Año.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_Busqueda2;
+        protected global::System.Web.UI.WebControls.Label lbl_Año;
         
         /// <summary>
-        /// Control btn_Buscar.
+        /// Control lbl_Artista.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Buscar;
+        protected global::System.Web.UI.WebControls.Label lbl_Artista;
         
         /// <summary>
-        /// Control btnAdministrar.
+        /// Control lbl_Rank.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdministrar;
+        protected global::System.Web.UI.WebControls.Label lbl_Rank;
         
         /// <summary>
-        /// Control txt_AlbumName.
+        /// Control Rating2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_AlbumName;
+        protected global::AjaxControlToolkit.Rating Rating2;
         
         /// <summary>
-        /// Control ListView1.
+        /// Control btn_Votar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListView1;
+        protected global::System.Web.UI.WebControls.Button btn_Votar;
         
         /// <summary>
-        /// Control ListView2.
+        /// Control GridView1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListView2;
-        
-        /// <summary>
-        /// Control ListView3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListView3;
-        
-        /// <summary>
-        /// Control SqlDataSource1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

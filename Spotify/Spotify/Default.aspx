@@ -8,7 +8,17 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <link rel="stylesheet" href="Styles.css" />
+    <link rel="stylesheet" href="Styles.css" />    
+    <script type="text/javascript">
+        function redir(albumName,ImageAlbum,AlbumAño,AlbumArtista,AlbumRank) {
+            localStorage.setItem('AlbumName', albumName);
+            localStorage.setItem('ImageAlbum', ImageAlbum);
+            localStorage.setItem('AlbumAño', AlbumAño);
+            localStorage.setItem('AlbumArtista', AlbumArtista);
+            localStorage.setItem('AlbumRank', AlbumRank);
+            window.location.href = "Album.aspx";
+        }
+    </script>
 </head>
 <body style="background-color:rgba(0,0,0,1)">
     <form id="form1" runat="server">
@@ -28,9 +38,12 @@
         <br />
         <asp:Button ID="btnAdministrar" runat="server" Text="Panel De Administración" Visible="False" OnClick="btnAdministrar_Click" />
 
+        <asp:TextBox ID="txt_AlbumName" runat="server" Visible="False"></asp:TextBox>
+
     </div>
         <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" GroupItemCount="1">
             <AlternatingItemTemplate>
+                <tr style="cursor:pointer;" onclick="redir('<%# Eval("Album") %>','<%# Eval("ImageUrl") %>','<%# Eval("Año") %>','<%# Eval("Artista") %>','<%# Eval("RankTotal") %>');">
                 <td runat="server" style="background-color:#008A8C; max-width: 300px;">
                     <DIV Style="color:white; background-color:rgba(0,0,0,0.40);">                         
                     <CENTER><img src="<%# Eval("ImageUrl") %>" style="width:300px; height:300px;" /></CENTER>
@@ -53,9 +66,10 @@
                             WaitingStarCssClass="HalfStars"
                             CurrentRating='<%#(int)Math.Ceiling((Double)Eval("RankTotal")) %>'
                             MaxRating="5"
-                            ></cc1:Rating>
+                            ReadOnly="True">
+                        </cc1:Rating>
                     </contenttemplate>
-                    </DIV></td>
+                    </DIV></td></tr>
             </AlternatingItemTemplate>
             <EditItemTemplate>
                 <td runat="server" style="background-color:#008A8C;color: #FFFFFF;">Album:
@@ -130,6 +144,7 @@
                         WaitingStarCssClass="HalfStars"
                         CurrentRating='<%#(int)Math.Ceiling((Double)Eval("RankTotal")) %>'
                         MaxRating="5"
+                        ReadOnly="True"
                         ></cc1:Rating>
                     </contenttemplate>
                     </DIV></td>
@@ -233,6 +248,7 @@
                         WaitingStarCssClass="HalfStars"
                         CurrentRating='<%#(int)Math.Ceiling((Double)Eval("RankTotal")) %>'
                         MaxRating="5"
+                        ReadOnly="True"
                         ></cc1:Rating>
                     </contenttemplate>
                     </DIV></td>
