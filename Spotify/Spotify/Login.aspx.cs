@@ -57,6 +57,7 @@ namespace Spotify
                 }
                 sqlConn.Close();
                 Session["admin"] = admin;
+                Session["UserName"] = Login1.UserName;
                 //dataGridView2.DataSource = dt;
             }
             catch (Exception ex)

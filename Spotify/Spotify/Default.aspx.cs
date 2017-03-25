@@ -16,6 +16,7 @@ namespace Spotify
         ConnectionStringSettings connStrSett;
         string connStr;
         public Boolean admin;
+        public string username;
         
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,6 +26,7 @@ namespace Spotify
             {
                 btnAdministrar.Visible = true;
             }
+            username = (String)Session["UserName"];
             connStrSett = ConfigurationManager.ConnectionStrings["spotifydbConnectionString"];
             connStr = connStrSett.ConnectionString;
         }

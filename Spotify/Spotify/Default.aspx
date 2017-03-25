@@ -16,7 +16,7 @@
             localStorage.setItem('AlbumAño', AlbumAño);
             localStorage.setItem('AlbumArtista', AlbumArtista);
             localStorage.setItem('AlbumRank', AlbumRank);
-            window.location.href = "Album.aspx";
+            window.location.href = "Album.aspx?Album=" + albumName;
         }
     </script>
 </head>
@@ -121,6 +121,7 @@
                     <br /></td>
             </InsertItemTemplate>
             <ItemTemplate>
+                <tr style="cursor:pointer;" onclick="redir('<%# Eval("Album") %>','<%# Eval("ImageUrl") %>','<%# Eval("Año") %>','<%# Eval("Artista") %>','<%# Eval("RankTotal") %>');">
                 <td runat="server" style="background-color:#DCDCDC;color: #000000;">
                     <DIV Style="color:white; background-color:rgba(0,0,0,0.40); max-width: 300px;">
                     <CENTER><img src="<%# Eval("ImageUrl") %>" style="width:300px; height:300px;"/></CENTER>
@@ -147,7 +148,7 @@
                         ReadOnly="True"
                         ></cc1:Rating>
                     </contenttemplate>
-                    </DIV></td>
+                    </DIV></td></tr>
             </ItemTemplate>
             <LayoutTemplate>
                 <table runat="server">
@@ -227,6 +228,7 @@
         <div class="ListAlbums">
         <asp:ListView ID="ListView3" runat="server" GroupItemCount="1" Visible="False" GroupPlaceholderID="groupPlaceholder3" ItemPlaceholderID="itemPlaceholder3">
             <ItemTemplate>
+                <tr style="cursor:pointer;" onclick="redir('<%# Eval("Album") %>','<%# Eval("ImageUrl") %>','<%# Eval("Año") %>','<%# Eval("Artista") %>','<%# Eval("RankTotal") %>');">
                 <td id="Td1" runat="server" style="background-color:#DCDCDC;color: #000000; max-width: 300px;">
                     <DIV Style="color:white; background-color:rgba(0,0,0,0.40);">
                     <CENTER><img src="<%# Eval("ImageUrl") %>" style="width:300px; height:300px;"/></CENTER>                        
@@ -251,7 +253,7 @@
                         ReadOnly="True"
                         ></cc1:Rating>
                     </contenttemplate>
-                    </DIV></td>
+                    </DIV></td></tr>
             </ItemTemplate>
             <GroupTemplate>
                 <tr id="itemPlaceholderContainer3" runat="server">

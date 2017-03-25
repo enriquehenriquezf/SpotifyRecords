@@ -25,9 +25,6 @@
         <asp:Label ID="lbl_Album" runat="server"></asp:Label>     
         <script type="text/javascript">
             document.getElementById('lbl_Album').innerHTML = localStorage.getItem('AlbumName');
-            var pageId = '<%=  Page.ClientID %>';
-            //__doPostBack(pageId, localStorage.getItem('AlbumName'));
-            <%Page.LoadComplete += new EventHandler(Page_LoadComplete); %>
         </script>
         <br />
         Año:
